@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Pdf Reader - Little App</string>
+
+    //Theme
+    <string name="basic_theme">Basic Theme</string>
+    <string name="sec_theme">Sec Theme</string>
+
+    <string name="pick_file">Pick File</string>
+    <string name="toast_pick_file_error">Unable to pick file. Check status of file manager.</string>
+    <string name="toast_http_code_error">Remote server responded with an error.</string>
+    <string name="toast_generic_download_error">We couldn\'t download this file for some reason.</string>
+    <string name="toast_ssl_error">Secure connection failed.</string>
+    <string name="saved_to_download">File saved to Download folder.</string>
+    <string name="save_to_download_failed">Couldn\'t save file to Download folder.</string>
+    <string name="intro">Replay Intro</string>
+    <string name="ok">Ok</string>
+    <string name="title_permission">Storage Permissions</string>
+    <string name="description__permission">You will now be prompted to allow the app to access the phone\'s storage. Without this permission, documents might fail to open in some cases.</string>
+    <string name="share_file">Share File</string>
+    <string name="print">Print File</string>
+    <string name="full_screen">Full Screen</string>
+    <string name="meta">File Info</string>
+    <string name="pdf_title">Title: %1$s</string>
+    <string name="pdf_author">Author: %1$s</string>
+    <string name="pdf_creation_date">Creation Date: %1$s</string>
+    <string name="file_opening_error">An error occurred while opening the file.</string>
+    <string name="protected_pdf">Protected PDF</string>
+    <string name="enter_password">Enter the correct password to open the document:</string>
+    <string name="wrong_password">Wrong password.</string>
+    <string name="share">Share</string>
 </resources>
