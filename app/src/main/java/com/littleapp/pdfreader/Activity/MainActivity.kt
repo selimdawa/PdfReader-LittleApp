@@ -16,7 +16,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.StrictMode
 import android.os.StrictMode.VmPolicy
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.print.PrintManager
 import android.provider.OpenableColumns
 import android.util.Log
@@ -34,6 +34,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.os.BundleCompat
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import com.github.barteksc.pdfviewer.PDFView.Configurator
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.Constants
@@ -81,7 +82,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val viewModel: PdfViewModel by lazy {
-        androidx.lifecycle.ViewModelProvider(this)[PdfViewModel::class.java]
+        ViewModelProvider(this)[PdfViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -112,7 +113,6 @@ class MainActivity : AppCompatActivity() {
         if (prefManager!!.getBoolean("screen_on_pref", false)) {
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
-        // Workaround for android:background XML attribute not being applied on all devices
     }
 
     private fun onFirstInstall() {
@@ -226,8 +226,7 @@ class MainActivity : AppCompatActivity() {
         if (exception is PdfPasswordException) {
             if (pdfPassword != null) {
                 Toast.makeText(activity, R.string.wrong_password, Toast.LENGTH_SHORT).show()
-                pdfPassword =
-                    null // prevent the toast from being shown again if the user rotates the screen
+                pdfPassword = null
             }
             askForPdfPassword()
         } else if (couldNotOpenFileDueToMissingPermission(exception)) {
